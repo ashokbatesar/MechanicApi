@@ -16,7 +16,7 @@ const validationRules = {
     },
     getUserDetails: function () {
         return [
-            body('action_taken_by', 'User Id is properly required').trim().escape().notEmpty(),
+            body('id', 'User Id is properly required').trim().escape().notEmpty(),
             body('token', 'Token is properly required').trim().escape().notEmpty()
         ]
     },
@@ -84,6 +84,74 @@ const validationRules = {
             body('aadhar_number', 'AADHAR Number is properly required').trim().escape().optional(),
             body('pan_number', 'PAN Number is properly required').trim().escape().optional(),
             body('driving_licence', 'DL is properly required').trim().escape().optional()
+        ]
+    },
+    raiseRequest: function () {
+        return [
+            body('id', 'User ID is properly required').trim().escape().notEmpty(),
+            body('token', 'Token is properly required').trim().escape().notEmpty(),
+            body('current_mobile', 'Mobile is properly required').trim().escape().notEmpty(),
+            body('latitude', 'Location is properly required').trim().escape().notEmpty(),
+            body('longitude', 'Location is properly required').trim().escape().notEmpty(),
+            body('veh_cat', 'Vehicle Category is properly required').trim().escape().notEmpty(),
+            body('veh_modal', 'Vehicle Modal is properly required').trim().escape().notEmpty(),
+            // body('veh_modal_year', 'Vehicle Modal Year is properly required').trim().escape().notEmpty(),
+            // body('veh_number', 'Vehicle Number is properly required').trim().escape().notEmpty(),
+            body('problem', 'Problem is properly required').trim().escape().notEmpty()
+        ]
+    },
+    getRaiseRequest: function () {
+        return [
+            body('id', 'User ID is properly required').trim().escape().notEmpty(),
+            body('token', 'Token is properly required').trim().escape().notEmpty()
+        ]
+    },
+    getRaiseRequestById: function () {
+        return [
+            body('id', 'User ID is properly required').trim().escape().notEmpty(),
+            body('token', 'Token is properly required').trim().escape().notEmpty(),
+            body('request_id', 'Request ID is properly required').trim().escape().notEmpty()
+        ]
+    },
+    getAllRaiseRequests: function () {
+        return [
+            body('action_taken_by', 'User ID is properly required').trim().escape().notEmpty(),
+            body('token', 'Token is properly required').trim().escape().notEmpty()
+        ]
+    },
+    updateRaiseRequest: function () {
+        return [
+            body('id', 'User ID is properly required').trim().escape().notEmpty(),
+            body('token', 'Token is properly required').trim().escape().notEmpty(),
+            body('request_id', 'Request is properly required').trim().escape().notEmpty(),
+            body('current_mobile', 'Mobile is properly required').trim().escape().optional(),
+            body('status', 'Status is properly required').trim().escape().optional(),
+            body('service_rating', 'Rating is properly required').trim().escape().optional(),
+            body('mechanic_id', 'Mechanic is properly required').trim().escape().optional(),
+        ]
+    },
+    expoToken: function () {
+        return [
+            body('id', 'User ID is properly required').trim().escape().notEmpty(),
+            body('token', 'Token is properly required').trim().escape().notEmpty(),
+            body('expo_token', 'Request is properly required').trim().escape().notEmpty(),
+            body('user_type', 'User Type is properly required').trim().escape().notEmpty()
+        ]
+    },
+    feedback: function () {
+        return [
+            body('id', 'User ID is properly required').trim().escape().notEmpty(),
+            body('token', 'Token is properly required').trim().escape().notEmpty(),
+            body('feedback', 'Feedback is properly required').trim().escape().notEmpty()
+        ]
+    },
+    changePassword: function () {
+        return [
+            body('id', 'User ID is properly required').trim().escape().notEmpty(),
+            body('token', 'Token is properly required').trim().escape().notEmpty(),
+            body('current_password', 'Current Password is properly required').trim().escape().notEmpty(),
+            body('new_password', 'New Password is properly required').trim().escape().notEmpty(),
+            body('user_type', 'User Type is properly required').trim().escape().notEmpty()
         ]
     }
 }

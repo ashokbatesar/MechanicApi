@@ -7,14 +7,16 @@ module.exports = function (req, res, next) {
     try {
         const decoded = jwt.verify(token, process.env.SECRET);
 
+        console.log(decoded);
+
         if (req.body.action_taken_by) {
-            if (req.body.action_taken_by == decoded) {
+            if (req.body.action_taken_by == decoded - 2) {
                 next();
             } else {
                 res.send({ status: "failure", message: "Invalid token. Please Logout and Login again" });
             }
         } else {
-            if (req.body.id == decoded) {
+            if (req.body.id == decoded - 2) {
                 next();
             } else {
                 res.send({ status: "failure", message: "Invalid token. Please Logout and Login again" });

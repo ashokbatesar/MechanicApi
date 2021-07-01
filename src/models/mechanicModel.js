@@ -16,7 +16,7 @@ Mechanic.getMechanicDetails = id => {
 
 Mechanic.getAllMechanicDetails = () => {
     return new Promise((resolve, reject) => {
-        db.query('SELECT id, name, email, mobile, gender, aadhar_number, pan_number, driving_licence FROM mechanic', (error, result) => {
+        db.query('SELECT id, name, email, mobile, gender, latitude, longitude, aadhar_number, pan_number, driving_licence FROM mechanic', (error, result) => {
             if (error) reject(error)
             resolve(result)
         })

@@ -22,9 +22,12 @@ if (process.env.APP_ENV == 'production') {
 
     const CronJob = require('cron').CronJob
 
-    const { transactionStatus } = require('./src/crons/orders')
+    const { transactionStatus, mechanicStatus } = require('./src/crons/allCrons')
 
-    const job = new CronJob('0 */2 * * * *', () => transactionStatus())
+
+    //const job = new CronJob('0 */2 * * * *', () => transactionStatus())
+
+    const job = new CronJob('*/10 * * * * *', () => mechanicStatus())
 
     job.start()
 }

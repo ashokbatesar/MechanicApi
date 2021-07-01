@@ -10,6 +10,7 @@
   "author": "Ashok Batesar",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.5",
@@ -21,7 +22,9 @@
     "express-validator": "^6.10.0",
     "helmet": "^4.4.1",
     "jsonwebtoken": "^8.5.1",
+    "mathjs": "^9.3.2",
     "mysql": "^2.18.1",
+    "node-fetch": "^2.6.1",
     "nodemon": "^2.0.7",
     "path": "^0.12.7"
   }
